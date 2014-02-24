@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="3.0" client="site" method="upgrade">
+    <name>mod_tz_services</name>
+    <author>DuongTVTemplaza</author>
+    <creationDate>July 15th 2013</creationDate>
+    <authorEmail>support@templaza.com</authorEmail>
+    <authorUrl>www.templaza.com</authorUrl>
+    <version>2.0</version>
+    <description>MOD_TZ_SERVICES_XML_DESCRIPTION</description>
+    <files>
+        <filename module="mod_tz_services">mod_tz_services.php</filename>
+        <filename>helper.php</filename>
+        <filename>index.html</filename>
+        <folder>admin</folder>
+        <folder>css</folder>
+		<folder>js</folder>
+		<folder>images</folder>
+        <folder>tmpl</folder>
+    </files>
+    <languages folder="languages">
+        <language tag="en-GB">en-GB/en-GB.mod_tz_services.ini</language>
+        <language tag="en-GB">en-GB/en-GB.mod_tz_services.sys.ini</language>
+    </languages>
+    <config>
+        <fields name="params">
+            <fieldset name="basic" addfieldpath="/modules/mod_tz_services/admin/formfields">
+                <field type="radio"
+                       name="enable_jquery"
+                       default="1"
+                       class="btn-group"
+                       label="MOD_TZ_SERVICES_ENABLE_JQUERY_LABEL"
+                       description="MOD_TZ_SERVICES_ENABLE_JQUERY_DESC">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field name="column_width" type="list"
+                       default="4" label="MOD_TZ_SERVICES_COLUMN_WIDTH_LABEL">
+                    <option value="1">MOD_TZ_SERVICES_SPAN1</option>
+                    <option value="2">MOD_TZ_SERVICES_SPAN2</option>
+                    <option value="3">MOD_TZ_SERVICES_SPAN3</option>
+                    <option value="4">MOD_TZ_SERVICES_SPAN4</option>
+                    <option value="5">MOD_TZ_SERVICES_SPAN5</option>
+                    <option value="6">MOD_TZ_SERVICES_SPAN6</option>
+                    <option value="7">MOD_TZ_SERVICES_SPAN7</option>
+                    <option value="8">MOD_TZ_SERVICES_SPAN8</option>
+                    <option value="9">MOD_TZ_SERVICES_SPAN9</option>
+                    <option value="10">MOD_TZ_SERVICES_SPAN10</option>
+                    <option value="11">MOD_TZ_SERVICES_SPAN11</option>
+                    <option value="12">MOD_TZ_SERVICES_SPAN12</option>
+                </field>
+                <field type="tzservices" name="services" label="MOD_TZ_SERVICES_INFORMATION_LABEL">
+                    <tzfield name="services_title" type="text"
+                             required="true"
+                             label="MOD_TZ_SERVICES_TITLE_LABEL"/>
+                    <tzfield name="services_image" type="media" label="MOD_TZ_SERVICES_IMAGE_LABEL"/>
+                    <tzfield name="services_icon_font" type="text" label="MOD_TZ_SERVICES_ICON_FONT_LABEL"/>
+                    <tzfield name="services_description" type="editor"
+                             buttons="readmore,pagebreak" filter="raw"
+                             label="MOD_TZ_SERVICES_DESCRIPTION_LABEL"/>
+                </field>
+            </fieldset>
+            <fieldset name="slider" label="MOD_TZ_SERVICES_FIELDSET_SLIDER">
+                <field name="autoPlay" type="radio"
+                       class="btn-group" default="0"
+                       label="MOD_TZ_SERVICES_AUTO_LABEL"
+                       description="MOD_TZ_SERVICES_AUTO_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+                <field name="navigation" type="radio"
+                       class="btn-group" default="0"
+                       label="MOD_TZ_SERVICES_NAVIGATION_LABEL"
+                       description="MOD_TZ_SERVICES_NAVIGATION_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field name="stopOnHover" type="radio"
+                       class="btn-group" default="0"
+                       label="MOD_TZ_SERVICES_STOP_ON_HOVER_LABEL"
+                       description="MOD_TZ_SERVICES_STOP_ON_HOVER_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field name="singleItem" type="radio"
+                       class="btn-group" default="0"
+                       label="MOD_TZ_SERVICES_SINGLE_ITEM_LABEL"
+                       description="MOD_TZ_SERVICES_SINGLE_ITEM_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field name="itemsScaleUp" type="radio"
+                       class="btn-group" default="0"
+                       label="MOD_TZ_SERVICES_ITEMS_SCALE_UP_LABEL"
+                       description="MOD_TZ_SERVICES_ITEMS_SCALE_UP_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field name="rewindNav" type="radio"
+                       class="btn-group" default="0"
+                       label="MOD_TZ_SERVICES_REWIND_NAV_LABEL"
+                       description="MOD_TZ_SERVICES_REWIND_NAV_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field name="pagination" type="radio"
+                       class="btn-group" default="0"
+                       label="MOD_TZ_SERVICES_PAGINATION_LABEL"
+                       description="MOD_TZ_SERVICES_PAGINATION_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field name="paginationNumbers" type="radio"
+                       class="btn-group" default="0"
+                       label="MOD_TZ_SERVICES_PAGINATION_NUMBERS_LABEL"
+                       description="MOD_TZ_SERVICES_PAGINATION_NUMBERS_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field name="items" type="text"
+                       default="5"
+                       label="MOD_TZ_SERVICES_ITEMS_LABEL"
+                       description="MOD_TZ_SERVICES_ITEMS_DESC"/>
+
+                <field name="slideSpeed" type="text"
+                       default="200"
+                       label="MOD_TZ_SERVICES_SLIDE_SPEED_LABEL"
+                       description="MOD_TZ_SERVICES_SLIDE_SPEED_DESC"/>
+
+                <field name="paginationSpeed" type="text"
+                       default="800"
+                       label="MOD_TZ_SERVICES_PAGINATION_SPEED_LABEL"
+                       description="MOD_TZ_SERVICES_PAGINATION_SPEED_DESC"/>
+
+                <field name="rewindSpeed" type="text"
+                       default="1000"
+                       label="MOD_TZ_SERVICES_REWIND_SPEED_LABEL"
+                       description="MOD_TZ_SERVICES_REWIND_SPEED_DESC"/>
+
+            </fieldset>
+            <fieldset name="tooltip" label="MOD_TZ_SERVICES_FIELDSET_TOOLTIP">
+                <field name="tz_fadeinspeed"
+                       type="text"
+                       label="MOD_TZ_SERVICES_FADE_IN_SPEED_LABEL"
+                       default="200"
+                       size="30"
+                       description=""/>
+                <field name="tz_border_s"
+                       type="text"
+                       label="MOD_TZ_SERVICES_BORDER_S_LABEL"
+                       default="black"
+                       size="30"
+                       description=""/>
+                <field name="tz_border_out"
+                       type="text"
+                       label="MOD_TZ_SERVICES_BORDER_OUT_LABEL"
+                       default="darkred"
+                       size="30"
+                       description=""/>
+                <field name="tz_background_s"
+                       type="text"
+                       label="MOD_TZ_SERVICES_BACKGROUND_S_LABEL"
+                       default="black"
+                       size="30"
+                       description=""/>
+                <field name="tz_background_out"
+                       type="text"
+                       label="MOD_TZ_SERVICES_BACKGROUND_OUT_LABEL"
+                       default="darkred"
+                       size="30"
+                       description=""/>
+                <field name="tz_tooltip_status"
+                       type="list"
+                       label="MOD_TZ_SERVICES_TOOLTIP_STATUS_LABEL"
+                       default="1"
+                       description="">
+                    <option value="1">JSHOW</option>
+                    <option value="0">JHIDE</option>
+                </field>
+            </fieldset>
+            <fieldset name="flexslide" label="MOD_TZ_SERVICES_FELDSET_FLEXSLIDE">
+                <field name="tz_auto"
+                       type="radio"
+                       class="btn-group"
+                       label="MOD_TZ_SERVICES_FLEX_AUTO_SILDE_LABEL"
+                       default="1"
+                       description="MOD_TZ_SERVICES_FLEX_AUTO_SILDE_DESC">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field name="tz_pausePlay"
+                       type="radio"
+                       label="MOD_TZ_SERVICES_FLEX_PAUSE_PLAY_LABEL"
+                       default="0"
+                       class="btn-group"
+                       description="MOD_TZ_SERVICES_FLEX_PAUSE_PLAY_DESC">
+                    <option value="1">JSHOW</option>
+                    <option value="0">JHIDE</option>
+                </field>
+                <field name="tz_animationLoop"
+                       type="radio"
+                       class="btn-group"
+                       default="0"
+                       label="MOD_TZ_SERVICES_FLEX_ANIMATION_LOOP_LABEL"
+                       description="MOD_TZ_SERVICES_FLEX_ANIMATION_LOOP_DESC">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field name="tz_effect"
+                       type="radio"
+                       label="MOD_TZ_SERVICES_FLEX_EFFECT_LABEL"
+                       default="slide"
+                       class="btn-group"
+                       size="30"
+                       description="MOD_TZ_SERVICES_FLEX_EFFECT_DESC">
+                    <option value="slide">JSLIDE</option>
+                    <option value="fade">JFADE</option>
+                </field>
+                <field name="tz_direction_nav"
+                       type="radio"
+                       class="btn-group"
+                       default="0"
+                       label="MOD_TZ_SERVICES_FLEX_DIRECTION_NAV_LABEL"
+                       description="MOD_TZ_SERVICES_FLEX_DIRECTION_NAV_DESC">
+                    <option value="1">JSHOW</option>
+                    <option value="0">JHIDE</option>
+                </field>
+                <field name="tz_animationSpeed"
+                       type="text"
+                       label="MOD_TZ_SERVICES_FLEX_ANIMATION_SPEED_LABEL"
+                       description="MOD_TZ_SERVICES_FLEX_ANIMATION_SPEED"
+                       default="600"
+                       class="btn-group"
+                       size="30"/>
+                <field name="tz_slideSpeed"
+                       type="text"
+                       label="MOD_TZ_SERVICES_FLEX_SLIDE_SPEED_LABEL"
+                       default="5000"
+                       class="btn-group"
+                       size="30"
+                       description="MOD_TZ_SERVICES_FLEX_SLIDE_SPEED_DESC"/>
+                <field name="tz_slideItemWidth"
+                       type="text"
+                       label="MOD_TZ_SERVICES_FLEX_SLIDE_ITEM_WIDTH_LABEL"
+                       default="100"
+                       class="btn-group"
+                       size="30"
+                       description="MOD_TZ_SERVICES_FLEX_SLIDE_ITEM_WIDTH_DESC"/>
+                <field name="tz_slideMinItem"
+                       type="text"
+                       label="MOD_TZ_SERVICES_FLEX_SLIDE_MIN_ITEM_LABEL"
+                       default="1"
+                       class="btn-group"
+                       size="30"
+                       description="MOD_TZ_SERVICES_FLEX_SLIDE_MIN_ITEM_DESC"/>
+                <field name="tz_slideMaxItem"
+                       type="text"
+                       label="MOD_TZ_SERVICES_FLEX_SLIDE_MAX_ITEM_LABEL"
+                       default="5"
+                       class="btn-group"
+                       size="30"
+                       description="MOD_TZ_SERVICES_FLEX_SLIDE_MAX_ITEM_DESC"/>
+                <field name="tz_slideMoveItem"
+                       type="text"
+                       label="MOD_TZ_SERVICES_FLEX_SLIDE_MOVE_ITEM_LABEL"
+                       default="5"
+                       class="btn-group"
+                       size="30"
+                       description="MOD_TZ_SERVICES_FLEX_SLIDE_MOVE_ITEM_DESC"/>
+            </fieldset>
+            <fieldset name="marquee" label="MOD_TZ_SERVICES_FIELDSET_MARQUEE">
+                <field name="tz_customclass"
+                       type="list"
+                       label="MOD_TZ_SERVICES_CUSTOM_CLASS_LABEL"
+                       default="simply-scroll"
+                       description="MOD_TZ_SERVICES_CUSTOM_CLASS_DESC">
+                    <option value="simply-scroll">Simply-scroll</option>
+                    <option value="vert">Vert</option>
+                </field>
+                <field name="tz_orientation"
+                       type="list"
+                       label="MOD_TZ_SERVICES_ORIENTATION_LABEL"
+                       default="horizontal"
+                       description="MOD_TZ_SERVICES_ORIENTATION_DESC">
+                    <option value="horizontal">horizontal</option>
+                    <option value="vertical">vertical</option>
+                </field>
+                <field name="tz_direction"
+                       type="list"
+                       label="MOD_TZ_SERVICES_DIRECTION_LABEL"
+                       default="backwards"
+                       description="MOD_TZ_SERVICES_DIRECTION_DESC">
+                    <option value="forwards">forwards</option>
+                    <option value="backwards">backwards</option>
+                </field>
+                <field name="tz_frameRate"
+                       type="text"
+                       label="MOD_TZ_SERVICES_FRAME_RATE_LABEL"
+                       default="24"
+                       description="MOD_TZ_SERVICES_FRAME_RATE_DESC"/>
+            </fieldset>
+            <fieldset name="advanced">
+
+                <field name="layout" type="modulelayout"
+                       label="JFIELD_ALT_LAYOUT_LABEL"
+                       description="JFIELD_ALT_MODULE_LAYOUT_DESC"/>
+
+                <field name="moduleclass_sfx" type="textarea" rows="3"
+                       label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+                       description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC"/>
+
+                <field name="cache" type="list" default="1"
+                       label="COM_MODULES_FIELD_CACHING_LABEL"
+                       description="COM_MODULES_FIELD_CACHING_DESC">
+                    <option value="1">JGLOBAL_USE_GLOBAL</option>
+                    <option value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+                </field>
+
+                <field name="cache_time" type="text" default="900"
+                       label="COM_MODULES_FIELD_CACHE_TIME_LABEL"
+                       description="COM_MODULES_FIELD_CACHE_TIME_DESC"/>
+                <field name="cachemode" type="hidden"
+                       default="static">
+                    <option value="static"></option>
+                </field>
+            </fieldset>
+        </fields>
+    </config>
+</extension>

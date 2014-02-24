@@ -1,0 +1,38 @@
+
+.TzServices {
+    position: relative;
+}
+.TzServices .navigation{
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    top: -35px;
+}
+.TzServices .navigation .tz_service_left,
+.TzServices .navigation .tz_service_right{
+    display: block;
+    width: 15px;
+    height: 25px;
+    float: left;
+}
+.TzServices .tz_service_left {
+    background: url("../images/bg_direction_nav.png") no-repeat;
+    background-position: 0 100%;
+    background-size: 30px;
+    cursor: pointer;
+}
+
+.TzServices .tz_service_right {
+    background: url("../images/bg_direction_nav.png") no-repeat;
+    background-position: 100% 0;
+    background-size: 30px;
+    cursor: pointer;
+
+}
+
+@media screen and (max-width: 1200px) {
+    .owl-carousel {
+        width: 90%;
+        margin: auto;
+    }
+}
